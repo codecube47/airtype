@@ -2,11 +2,7 @@
 
 ## Demo
 
-<video src="./demo.webm" controls width="720">
-  Your browser doesn't render inline video — <a href="./demo.webm">download the recording</a>.
-</video>
-
-> If GitHub doesn't play the file inline, click [demo.webm](./demo.webm) to download it.
+![AirType push-to-talk demo](./demo.gif)
 
 ## The hot path (push-to-talk → pasted text)
 
