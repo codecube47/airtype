@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: airtype-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: airtype
+    volumes:
+      - mongodb_data:/data/db
+      - ./infrastructure/mongodb-init.js:/docker-entrypoint-initdb.d/init.js:ro
+    networks:
+      - airtype-network
+
+  # Backend API (uncomment for production)
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: airtype-backend
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3001:3001"
+  #   environment:
+  #     PORT: 3001
+  #     ENV: production
+  #     MONGODB_URI: mongodb://admin:admin123@mongodb:27017/airtype?authSource=admin
+  #     JWT_SECRET: ${JWT_SECRET}
+  #     GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+  #     GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+  #     GOOGLE_REDIRECT_URL: ${GOOGLE_REDIRECT_URL}
+  #     GROQ_API_KEY: ${GROQ_API_KEY}
+  #     DESKTOP_CALLBACK_URL: airtype://auth/callback
+  #   depends_on:
+  #     - mongodb
+  #   networks:
+  #     - airtype-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  airtype-network:
+    driver: bridge

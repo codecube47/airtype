@@ -1,0 +1,59 @@
+# Environment variables
+.env
+.env.local
+.env.prod
+.env.production
+
+# Go
+backend/bin/
+backend/tmp/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Electron
+desktop/dist/
+desktop/dist-electron/
+desktop/build/
+desktop/release/
+desktop/out/
+*.dmg
+*.app
+*.AppImage
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# OS
+Thumbs.db
+
+# Docker
+*.pid

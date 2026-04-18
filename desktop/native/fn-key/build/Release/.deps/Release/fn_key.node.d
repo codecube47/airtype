@@ -1,0 +1,1 @@
+cmd_Release/fn_key.node := c++ -bundle -undefined dynamic_lookup -Wl,-search_paths_first -mmacosx-version-min=10.15 -arch arm64 -L./Release -stdlib=libc++  -o Release/fn_key.node Release/obj.target/fn_key/fn_key.o -framework ApplicationServices -framework CoreFoundation -framework AppKit

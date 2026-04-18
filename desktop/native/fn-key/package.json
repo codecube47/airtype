@@ -1,0 +1,12 @@
+{
+  "name": "fn-key",
+  "version": "1.0.0",
+  "description": "Native addon to capture fn key on macOS",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-gyp rebuild"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.0.0"
+  }
+}
