@@ -54,67 +54,37 @@ airtype/
 
 ## Quick Start
 
-### Prerequisites
+You'll need Go 1.21+, Node 18+, Docker, a [Groq API key](https://console.groq.com), and a [Google OAuth client](https://console.cloud.google.com) (Web application, redirect URI `http://localhost:3001/api/auth/google/callback`).
 
-- **Go 1.21+**
-- **Node.js 18+**
-- **MongoDB 6.0+**
-- **Groq API Key** - Get from https://console.groq.com
-- **Google OAuth Credentials** - Get from https://console.cloud.google.com
-
-### 1. Clone and Install
+**1. Install**
 
 ```bash
-# Clone repository
-git clone https://github.com/codecube47/airtype.git
-cd airtype
-
-# Start dependencies with Docker
+git clone https://github.com/codecube47/airtype.git && cd airtype
 docker-compose up -d mongodb
-
-# Install backend dependencies
-cd backend
-go mod download
-
-# Install desktop dependencies
-cd ../desktop
-npm install
+(cd backend && go mod download)
+(cd desktop && npm install)
 ```
 
-### 2. Configure Environment
+**2. Configure**
 
 ```bash
-# Backend - create backend/.env
 cp backend/.env.example backend/.env
-
-# Edit backend/.env with your credentials:
-# - GOOGLE_CLIENT_ID
-# - GOOGLE_CLIENT_SECRET
-# - GROQ_API_KEY
-# - JWT_SECRET (generate with: openssl rand -base64 32)
+# fill in GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GROQ_API_KEY
+# generate JWT_SECRET with: openssl rand -base64 32
 ```
 
-### 3. Run Development
+**3. Run**
 
 ```bash
-# Terminal 1: Start backend
-cd backend
-go run cmd/server/main.go
-
-# Terminal 2: Start desktop app
-cd desktop
-npm run dev
+# terminal 1
+cd backend && go run cmd/server/main.go
+# terminal 2
+cd desktop && npm run dev
 ```
 
-### 4. Google OAuth Setup
+**4. Use it** — sign in with Google, grant mic + accessibility permissions when prompted, then hold `fn` and speak. Cleaned text pastes at your cursor in under 500ms.
 
-1. Go to https://console.cloud.google.com
-2. Create new project "AirType"
-3. Enable "Google+ API"
-4. Create OAuth 2.0 credentials:
-   - Application type: **Web application**
-   - Authorized redirect URIs: `http://localhost:3001/api/auth/google/callback`
-5. Copy Client ID and Client Secret to `backend/.env`
+Longer walkthroughs: [SETUP.md](./SETUP.md) · [docs/HOW_IT_WORKS.md](./docs/HOW_IT_WORKS.md).
 
 ## API Endpoints
 
