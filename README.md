@@ -16,6 +16,12 @@ Production-ready voice dictation application with Google OAuth authentication, b
 - 📊 **Usage tracking** - Dashboard with transcription history and stats
 - 💳 **Free plan** - 3,000 words/month included
 
+## Screenshots
+
+| Light | Dark |
+|---|---|
+| ![Airtype Dashboard — light mode](./docs/screenshots/dashboard-light.png) | ![Airtype Dashboard — dark mode](./docs/screenshots/dashboard-dark.png) |
+
 ## Tech Stack
 
 ### Backend
