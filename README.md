@@ -420,7 +420,7 @@ The hot path bypasses the backend entirely. Audio never touches your server; the
 
 ## License
 
-MIT License - See LICENSE file for details
+Apache License 2.0 — see [LICENSE](./LICENSE) for the full text.
 
 ## Support
 

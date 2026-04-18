@@ -4,7 +4,7 @@
   "description": "AI-powered voice dictation for desktop",
   "main": "dist-electron/main.js",
   "author": "AirType Team",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "dev": "vite",
