@@ -22,6 +22,8 @@ Production-ready voice dictation application with Google OAuth authentication, b
 |---|---|
 | ![AirType Dashboard — light mode](./docs/screenshots/dashboard-light.png) | ![AirType Dashboard — dark mode](./docs/screenshots/dashboard-dark.png) |
 
+See [docs/HOW_IT_WORKS.md](./docs/HOW_IT_WORKS.md) for a demo recording and a walkthrough of the push-to-talk hot path.
+
 ## Tech Stack
 
 ### Backend

@@ -2,11 +2,11 @@
 
 ## Demo
 
-<video src="./Screen%20Recording%20.webm" controls width="720">
-  Your browser doesn't render inline video — <a href="./Screen%20Recording%20.webm">download the recording</a>.
+<video src="./demo.webm" controls width="720">
+  Your browser doesn't render inline video — <a href="./demo.webm">download the recording</a>.
 </video>
 
-> If GitHub doesn't play the file inline, click [Screen Recording .webm](./Screen%20Recording%20.webm) to download it.
+> If GitHub doesn't play the file inline, click [demo.webm](./demo.webm) to download it.
 
 ## The hot path (push-to-talk → pasted text)
 
