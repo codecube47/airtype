@@ -1,6 +1,6 @@
-# Airtype Setup Guide
+# AirType Setup Guide
 
-Complete step-by-step guide to get Airtype running on your machine.
+Complete step-by-step guide to get AirType running on your machine.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ cd airtype
 ### 2.2 Setup Google OAuth
 
 1. Go to [https://console.cloud.google.com](https://console.cloud.google.com)
-2. Create a new project called "Airtype"
+2. Create a new project called "AirType"
 3. Enable the **Google+ API**:
    - Go to "APIs & Services" > "Library"
    - Search for "Google+ API"
@@ -41,7 +41,7 @@ cd airtype
    - Go to "APIs & Services" > "Credentials"
    - Click "Create Credentials" > "OAuth client ID"
    - Choose "Web application"
-   - Set name: "Airtype Desktop"
+   - Set name: "AirType Desktop"
    - Add authorized redirect URI:
      ```
      http://localhost:3001/api/auth/google/callback
@@ -155,7 +155,7 @@ go run cmd/server/main.go
 
 You should see:
 ```
-INFO    Starting Airtype API server    port=3001 environment=development
+INFO    Starting AirType API server    port=3001 environment=development
 INFO    Connected to MongoDB
 INFO    Server started on port 3001
 ```
@@ -221,7 +221,7 @@ env -u ELECTRON_RUN_AS_NODE npm run dev
 
 **Dev build silently exits immediately after Vite finishes building:**
 
-Usually means another instance of Airtype (often the packaged `/Applications/Airtype.app`) is running and holding the single-instance lock, so `app.requestSingleInstanceLock()` returns `false` and the dev build calls `app.quit()`. Quit the installed version, or give the dev build a distinct `productName`.
+Usually means another instance of AirType (often the packaged `/Applications/AirType.app`) is running and holding the single-instance lock, so `app.requestSingleInstanceLock()` returns `false` and the dev build calls `app.quit()`. Quit the installed version, or give the dev build a distinct `productName`.
 
 **Native fn-key module fails to load or silently does nothing:**
 
@@ -232,7 +232,7 @@ The module needs macOS Accessibility permission. The app now shows an explicit d
 await window.electronAPI.checkAccessibilityPermission()
 ```
 
-If `false`, open System Settings → Privacy & Security → Accessibility, enable Airtype/Electron, then restart the app.
+If `false`, open System Settings → Privacy & Security → Accessibility, enable AirType/Electron, then restart the app.
 
 **"Cannot find module" errors:**
 ```bash

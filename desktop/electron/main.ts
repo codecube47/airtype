@@ -60,11 +60,11 @@ function setupAutoUpdater() {
     autoUpdater.autoInstallOnAppQuit = true
 
     autoUpdater.on('update-available', (info) => {
-      console.log('[Airtype] Update available:', info.version)
+      console.log('[AirType] Update available:', info.version)
     })
 
     autoUpdater.on('update-downloaded', (info) => {
-      console.log('[Airtype] Update downloaded:', info.version)
+      console.log('[AirType] Update downloaded:', info.version)
       if (mainWindow && !mainWindow.isDestroyed()) {
         dialog.showMessageBox(mainWindow, {
           type: 'info',
@@ -80,7 +80,7 @@ function setupAutoUpdater() {
     })
 
     autoUpdater.on('error', (err) => {
-      console.error('[Airtype] Auto-update error:', err.message)
+      console.error('[AirType] Auto-update error:', err.message)
     })
 
     autoUpdater.checkForUpdatesAndNotify()
@@ -105,7 +105,7 @@ function loadNativeModule() {
       : path.join(process.resourcesPath, 'app.asar.unpacked/native/fn-key')
     fnKeyListener = require(nativeModulePath)
   } catch (e: any) {
-    console.error('[Airtype] Failed to load fn-key native module:', e)
+    console.error('[AirType] Failed to load fn-key native module:', e)
   }
 }
 
@@ -282,7 +282,7 @@ function createTray() {
   // Create tray icon - resize to appropriate size for menu bar
   let icon = nativeImage.createFromPath(iconPath)
   if (icon.isEmpty()) {
-    console.error('[Airtype] Failed to load tray icon from:', iconPath)
+    console.error('[AirType] Failed to load tray icon from:', iconPath)
     return
   }
   icon = icon.resize({ width: 18, height: 18 })
@@ -293,7 +293,7 @@ function createTray() {
   }
 
   tray = new Tray(icon)
-  tray.setToolTip('Airtype')
+  tray.setToolTip('AirType')
 
   const showOrCreateMainWindow = () => {
     if (mainWindow && !mainWindow.isDestroyed()) {
@@ -307,7 +307,7 @@ function createTray() {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Show Airtype',
+      label: 'Show AirType',
       click: showOrCreateMainWindow,
     },
     { type: 'separator' },
@@ -330,8 +330,8 @@ async function promptAccessibilityPermission() {
   const { response } = await dialog.showMessageBox({
     type: 'warning',
     title: 'Accessibility Permission Required',
-    message: 'Airtype needs Accessibility access to detect the fn key.',
-    detail: 'Open System Settings → Privacy & Security → Accessibility and enable Airtype, then restart the app.',
+    message: 'AirType needs Accessibility access to detect the fn key.',
+    detail: 'Open System Settings → Privacy & Security → Accessibility and enable AirType, then restart the app.',
     buttons: ['Open Settings', 'Later'],
     defaultId: 0,
     cancelId: 1,
@@ -349,7 +349,7 @@ async function setupFnKeyListener() {
   }
 
   if (process.platform === 'darwin' && !fnKeyListener.isTrusted()) {
-    console.warn('[Airtype] Accessibility permission not granted — fn key will not work')
+    console.warn('[AirType] Accessibility permission not granted — fn key will not work')
     await promptAccessibilityPermission()
     return
   }
@@ -376,7 +376,7 @@ async function setupFnKeyListener() {
   })
 
   if (!result.ok) {
-    console.error('[Airtype] Failed to initialize fn key listener:', result.code, result.message || '')
+    console.error('[AirType] Failed to initialize fn key listener:', result.code, result.message || '')
     if (result.code === 'EACCESS_DENIED') {
       await promptAccessibilityPermission()
     }
@@ -407,7 +407,7 @@ async function exchangeCodeForTokens(code: string): Promise<PendingTokens | null
       res.on('data', (chunk) => { body += chunk.toString() })
       res.on('end', () => {
         if (res.statusCode !== 200) {
-          console.error('[Airtype] /auth/exchange failed:', res.statusCode, body)
+          console.error('[AirType] /auth/exchange failed:', res.statusCode, body)
           resolve(null)
           return
         }
@@ -419,13 +419,13 @@ async function exchangeCodeForTokens(code: string): Promise<PendingTokens | null
             resolve(null)
           }
         } catch (e) {
-          console.error('[Airtype] /auth/exchange: invalid JSON response', e)
+          console.error('[AirType] /auth/exchange: invalid JSON response', e)
           resolve(null)
         }
       })
     })
     req.on('error', (err) => {
-      console.error('[Airtype] /auth/exchange network error:', err)
+      console.error('[AirType] /auth/exchange network error:', err)
       resolve(null)
     })
     req.write(JSON.stringify({ code }))
@@ -445,19 +445,19 @@ async function handleOAuthCallback(rawUrl: string) {
   const legacyAccess = urlObj.searchParams.get('accessToken')
   const legacyRefresh = urlObj.searchParams.get('refreshToken')
   if (legacyAccess && legacyRefresh) {
-    console.warn('[Airtype] Received legacy token-in-URL callback; accepting once')
+    console.warn('[AirType] Received legacy token-in-URL callback; accepting once')
     sendAuthCallback({ accessToken: legacyAccess, refreshToken: legacyRefresh })
     return
   }
 
   if (!code) {
-    console.error('[Airtype] OAuth callback missing code')
+    console.error('[AirType] OAuth callback missing code')
     return
   }
 
   const expectedNonce = store.get(PENDING_NONCE_KEY, null) as string | null
   if (!expectedNonce || expectedNonce !== nonce) {
-    console.error('[Airtype] OAuth callback nonce mismatch — refusing to exchange. expected:', !!expectedNonce, 'got:', !!nonce)
+    console.error('[AirType] OAuth callback nonce mismatch — refusing to exchange. expected:', !!expectedNonce, 'got:', !!nonce)
     return
   }
   // Single-use: clear the nonce before exchange so a replay can't re-trigger.
@@ -465,7 +465,7 @@ async function handleOAuthCallback(rawUrl: string) {
 
   const tokens = await exchangeCodeForTokens(code)
   if (!tokens) {
-    console.error('[Airtype] Failed to exchange code for tokens')
+    console.error('[AirType] Failed to exchange code for tokens')
     return
   }
   sendAuthCallback(tokens)
@@ -475,7 +475,7 @@ async function handleOAuthCallback(rawUrl: string) {
 app.on('open-url', (event, url) => {
   // Do not log `url` — it contains the OAuth exchange code + client nonce.
   event.preventDefault()
-  handleOAuthCallback(url).catch((err) => console.error('[Airtype] open-url handler error:', err))
+  handleOAuthCallback(url).catch((err) => console.error('[AirType] open-url handler error:', err))
 })
 
 // Handle second instance (Windows)
@@ -493,7 +493,7 @@ if (!gotTheLock) {
     const url = commandLine.find((arg) => arg.startsWith('airtype://'))
     if (url && url.includes('auth/callback')) {
       handleOAuthCallback(url).catch((err) =>
-        console.error('[Airtype] second-instance OAuth handler error:', err)
+        console.error('[AirType] second-instance OAuth handler error:', err)
       )
     }
   })
@@ -576,7 +576,7 @@ ipcMain.handle('paste-text', async (_event, text: string) => {
       await execAsync('xdotool key ctrl+v')
     }
   } catch (err: any) {
-    console.error('[Airtype] Paste keystroke failed:', err?.message || err)
+    console.error('[AirType] Paste keystroke failed:', err?.message || err)
     clipboard.writeText(previousClipboard)
     return false
   }

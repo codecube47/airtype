@@ -52,7 +52,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
               <p className="text-sm text-foreground leading-relaxed">
                 Hold the{' '}
                 <kbd className="px-1.5 py-0.5 text-xs font-mono rounded border border-border bg-muted">fn</kbd>{' '}
-                key anywhere on your Mac, speak, and release. Airtype transcribes what you said and pastes it into the
+                key anywhere on your Mac, speak, and release. AirType transcribes what you said and pastes it into the
                 currently focused application.
               </p>
               <ol className="text-sm text-muted-foreground space-y-1.5 list-decimal list-inside leading-relaxed">
@@ -71,7 +71,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
                 <ShieldCheck className="w-5 h-5 text-brand-ocean" />
                 <CardTitle className="text-lg">Permissions</CardTitle>
               </div>
-              <CardDescription>Airtype needs two macOS permissions to work.</CardDescription>
+              <CardDescription>AirType needs two macOS permissions to work.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-start gap-3">
@@ -88,7 +88,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
                 <div className="flex-1">
                   <p className="text-sm font-medium text-foreground">Accessibility</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Required so Airtype can detect the fn key system-wide — even when another app is focused.
+                    Required so AirType can detect the fn key system-wide — even when another app is focused.
                   </p>
                   <Button
                     variant="outline"
@@ -117,7 +117,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
                 <div>
                   <dt className="font-medium text-foreground">The fn key doesn't trigger recording</dt>
                   <dd className="text-muted-foreground leading-relaxed mt-1">
-                    Open System Settings → Privacy &amp; Security → Accessibility and make sure Airtype is enabled.
+                    Open System Settings → Privacy &amp; Security → Accessibility and make sure AirType is enabled.
                     Restart the app after granting permission.
                   </dd>
                 </div>
@@ -190,7 +190,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
 
           {/* About footer */}
           <div className="text-center pt-4">
-            <p className="text-xs text-muted-foreground">Airtype · v1.0.0</p>
+            <p className="text-xs text-muted-foreground">AirType · v1.0.0</p>
           </div>
         </main>
       </div>

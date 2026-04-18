@@ -1,4 +1,4 @@
-# Airtype - AI-Powered Voice Dictation
+# AirType - AI-Powered Voice Dictation
 
 Production-ready voice dictation application with Google OAuth authentication, built with Go backend and Electron desktop app.
 
@@ -20,7 +20,7 @@ Production-ready voice dictation application with Google OAuth authentication, b
 
 | Light | Dark |
 |---|---|
-| ![Airtype Dashboard — light mode](./docs/screenshots/dashboard-light.png) | ![Airtype Dashboard — dark mode](./docs/screenshots/dashboard-dark.png) |
+| ![AirType Dashboard — light mode](./docs/screenshots/dashboard-light.png) | ![AirType Dashboard — dark mode](./docs/screenshots/dashboard-dark.png) |
 
 ## Tech Stack
 
@@ -105,7 +105,7 @@ npm run dev
 ### 4. Google OAuth Setup
 
 1. Go to https://console.cloud.google.com
-2. Create new project "Airtype"
+2. Create new project "AirType"
 3. Enable "Google+ API"
 4. Create OAuth 2.0 credentials:
    - Application type: **Web application**
@@ -285,9 +285,9 @@ make package-mac
 make package-mac-x64
 
 # Output: desktop/dist/
-# - Airtype-<version>-arm64.dmg    (or -x64.dmg)
-# - Airtype-<version>-arm64.zip
-# - mac-arm64/Airtype.app          (runnable bundle, no install)
+# - AirType-<version>-arm64.dmg    (or -x64.dmg)
+# - AirType-<version>-arm64.zip
+# - mac-arm64/AirType.app          (runnable bundle, no install)
 ```
 
 `<version>` is whatever is in [desktop/package.json](./desktop/package.json) (currently `1.1.0`).
@@ -300,8 +300,8 @@ The `make package-mac` flow is equivalent to `cd desktop && npm run package:mac`
 make package-win
 
 # Output: desktop/dist/
-# - Airtype Setup <version>.exe   (NSIS installer)
-# - Airtype <version>.exe         (portable build)
+# - AirType Setup <version>.exe   (NSIS installer)
+# - AirType <version>.exe         (portable build)
 ```
 
 Windows packaging requires Windows host or Wine on macOS/Linux.
@@ -324,10 +324,10 @@ Without notarization, first-launch on other Macs hits a Gatekeeper warning (righ
 The packaged app requires these permissions (users must grant manually):
 
 1. **System Settings → Privacy & Security → Microphone**
-   - Enable for Airtype
+   - Enable for AirType
 
 2. **System Settings → Privacy & Security → Accessibility**
-   - Enable for Airtype (required for fn key hotkey and text paste)
+   - Enable for AirType (required for fn key hotkey and text paste)
 
 ---
 

@@ -1,4 +1,4 @@
-// MongoDB initialization script for Airtype
+// MongoDB initialization script for AirType
 // This script runs when MongoDB container first starts
 
 db = db.getSiblingDB('airtype');
@@ -32,4 +32,4 @@ db.subscriptions.createIndex({ 'userId': 1 }, { unique: true });
 db.subscriptions.createIndex({ 'stripeCustomerId': 1 });
 db.subscriptions.createIndex({ 'status': 1 });
 
-print('Airtype database initialized successfully!');
+print('AirType database initialized successfully!');

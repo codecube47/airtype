@@ -31,7 +31,7 @@ func main() {
 	}
 	defer logger.Sync()
 
-	logger.Log.Infow("Starting Airtype API server",
+	logger.Log.Infow("Starting AirType API server",
 		"port", cfg.Port,
 		"environment", cfg.Environment,
 	)

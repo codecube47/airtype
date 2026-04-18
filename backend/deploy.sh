@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-# Airtype Backend Deployment Script
+# AirType Backend Deployment Script
 # Deploys Go backend + MongoDB to Railway
 # =============================================================================
 

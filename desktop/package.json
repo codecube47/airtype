@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "description": "AI-powered voice dictation for desktop",
   "main": "dist-electron/main.js",
-  "author": "Airtype Team",
+  "author": "AirType Team",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -49,7 +49,7 @@
   },
   "build": {
     "appId": "com.airtype.app",
-    "productName": "Airtype",
+    "productName": "AirType",
     "directories": {
       "output": "dist"
     },
@@ -71,8 +71,8 @@
       "entitlements": "build/entitlements.mac.plist",
       "entitlementsInherit": "build/entitlements.mac.plist",
       "extendInfo": {
-        "NSMicrophoneUsageDescription": "Airtype needs microphone access for voice dictation.",
-        "NSAppleEventsUsageDescription": "Airtype needs to control other applications to paste transcribed text."
+        "NSMicrophoneUsageDescription": "AirType needs microphone access for voice dictation.",
+        "NSAppleEventsUsageDescription": "AirType needs to control other applications to paste transcribed text."
       }
     },
     "win": {

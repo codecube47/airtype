@@ -25,7 +25,7 @@ export function Sidebar({ activeItem = 'dashboard', onLogout, onNavigate }: Side
 
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-3">
-        <img src={logoImg} alt="Airtype" className="h-6 w-auto" />
+        <img src={logoImg} alt="AirType" className="h-6 w-auto" />
         <span className="text-lg font-bold text-foreground">AirType</span>
       </div>
 

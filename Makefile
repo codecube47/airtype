@@ -8,7 +8,7 @@
 	clean
 
 help:
-	@echo "Airtype — make targets"
+	@echo "AirType — make targets"
 	@echo ""
 	@echo "Setup"
 	@echo "  make install         Install backend (go mod) and desktop (npm) dependencies"
@@ -120,7 +120,7 @@ package-mac: native
 	@echo "Build complete!"
 	@echo "App location: desktop/dist/"
 	@echo ""
-	@echo "To run: open desktop/dist/mac-arm64/Airtype.app"
+	@echo "To run: open desktop/dist/mac-arm64/AirType.app"
 
 package-mac-x64: native-x64
 	@echo "Building and packaging desktop app for macOS (Intel)..."

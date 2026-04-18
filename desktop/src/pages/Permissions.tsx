@@ -59,9 +59,9 @@ export function Permissions({ onPermissionsGranted }: PermissionsProps) {
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
           <div className="flex justify-center mb-4">
-            <img src={logoImg} alt="Airtype" className="h-16 w-auto" />
+            <img src={logoImg} alt="AirType" className="h-16 w-auto" />
           </div>
-          <h1 className="text-2xl font-bold text-foreground">Welcome to Airtype</h1>
+          <h1 className="text-2xl font-bold text-foreground">Welcome to AirType</h1>
           <p className="text-muted-foreground mt-1">Let's set up a few things first</p>
         </div>
 
@@ -74,7 +74,7 @@ export function Permissions({ onPermissionsGranted }: PermissionsProps) {
               </div>
               <div>
                 <h2 className="font-semibold text-foreground">Permissions Required</h2>
-                <p className="text-sm text-muted-foreground">Airtype needs these permissions to work</p>
+                <p className="text-sm text-muted-foreground">AirType needs these permissions to work</p>
               </div>
             </div>
 
@@ -153,7 +153,7 @@ export function Permissions({ onPermissionsGranted }: PermissionsProps) {
                 <h4 className="font-medium text-amber-800 dark:text-amber-200 text-sm">How to enable Accessibility:</h4>
                 <ol className="mt-2 text-sm text-amber-700 dark:text-amber-300 space-y-1 list-decimal list-inside">
                   <li>Click "Open Settings" above</li>
-                  <li>Find "Airtype" in the list</li>
+                  <li>Find "AirType" in the list</li>
                   <li>Toggle the switch to enable</li>
                   <li>Come back here and click "Check Again"</li>
                 </ol>

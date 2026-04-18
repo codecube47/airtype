@@ -1,6 +1,6 @@
-# Next Steps - Airtype Development
+# Next Steps - AirType Development
 
-Your Airtype project scaffolding is complete! Here's what you should do next and what features you can add.
+Your AirType project scaffolding is complete! Here's what you should do next and what features you can add.
 
 ## ✅ What's Been Built
 
@@ -481,7 +481,7 @@ autoUpdater.checkForUpdatesAndNotify()
 
 ## 🎉 You're Ready!
 
-You now have a production-ready foundation for your Airtype voice dictation app. The hardest part (architecture and setup) is done. Now it's time to build the features that make it amazing!
+You now have a production-ready foundation for your AirType voice dictation app. The hardest part (architecture and setup) is done. Now it's time to build the features that make it amazing!
 
 **Good luck and happy coding! 🚀**
 

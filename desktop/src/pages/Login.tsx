@@ -87,9 +87,9 @@ export function Login({ onLoginSuccess }: LoginProps) {
       <Card className="w-full max-w-md shadow-2xl" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <img src={logoImg} alt="Airtype" className="h-16 w-auto" />
+            <img src={logoImg} alt="AirType" className="h-16 w-auto" />
           </div>
-          <CardTitle className="text-3xl font-bold">Welcome to Airtype</CardTitle>
+          <CardTitle className="text-3xl font-bold">Welcome to AirType</CardTitle>
           <CardDescription className="text-base">
             AI-powered voice dictation for your desktop
           </CardDescription>
