@@ -2,6 +2,8 @@
 
 Production-ready voice dictation application with Google OAuth authentication, built with Go backend and Electron desktop app.
 
+![AirType push-to-talk demo](./docs/demo.gif)
+
 ## Features
 
 - 🎤 **Voice-to-Text** - Groq Whisper Large v3 Turbo for fast, accurate transcription
@@ -22,7 +24,7 @@ Production-ready voice dictation application with Google OAuth authentication, b
 |---|---|
 | ![AirType Dashboard — light mode](./docs/screenshots/dashboard-light.png) | ![AirType Dashboard — dark mode](./docs/screenshots/dashboard-dark.png) |
 
-See [docs/HOW_IT_WORKS.md](./docs/HOW_IT_WORKS.md) for a demo recording and a walkthrough of the push-to-talk hot path.
+See [docs/HOW_IT_WORKS.md](./docs/HOW_IT_WORKS.md) for a walkthrough of the push-to-talk hot path.
 
 ## Tech Stack
 
