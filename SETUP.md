@@ -14,7 +14,7 @@ Before you begin, ensure you have the following installed:
 ## Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/airtype.git
+git clone https://github.com/codecube47/airtype.git
 cd airtype
 ```
 
@@ -344,8 +344,8 @@ make clean
 
 ## Getting Help
 
-- **Issues**: https://github.com/yourusername/airtype/issues
-- **Discussions**: https://github.com/yourusername/airtype/discussions
+- **Issues**: https://github.com/codecube47/airtype/issues
+- **Discussions**: https://github.com/codecube47/airtype/discussions
 - **Email**: support@airtype.com
 
 ## Production Deployment

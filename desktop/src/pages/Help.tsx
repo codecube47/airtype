@@ -179,7 +179,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => openExternal('https://github.com/yourusername/airtype/issues')}
+                onClick={() => openExternal('https://github.com/codecube47/airtype/issues')}
                 className="gap-2"
               >
                 <Github className="w-3.5 h-3.5" />

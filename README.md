@@ -56,7 +56,7 @@ airtype/
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/airtype.git
+git clone https://github.com/codecube47/airtype.git
 cd airtype
 
 # Start dependencies with Docker
@@ -419,7 +419,7 @@ MIT License - See LICENSE file for details
 ## Support
 
 - **Documentation**: https://docs.airtype.com
-- **Issues**: https://github.com/yourusername/airtype/issues
+- **Issues**: https://github.com/codecube47/airtype/issues
 - **Email**: support@airtype.com
 
 ## Supported Languages
