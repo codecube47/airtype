@@ -58,13 +58,17 @@ func SetupRouter(
 	// API routes
 	api := router.Group("/api")
 	{
-		// Authentication routes (public)
+		// Authentication routes (public). /exchange and /refresh are
+		// per-IP rate-limited to slow brute-forcing of codes or refresh
+		// tokens observed in logs/history. Login endpoints don't need it
+		// (they generate new state/nonce on every call).
+		authLimit := middleware.IPRateLimitMiddleware(20, 5)
 		auth := api.Group("/auth")
 		{
 			auth.GET("/google/login", authHandler.GoogleLogin)
 			auth.GET("/google/callback", authHandler.GoogleCallback)
-			auth.POST("/exchange", authHandler.Exchange)
-			auth.POST("/refresh", authHandler.RefreshToken)
+			auth.POST("/exchange", authLimit, authHandler.Exchange)
+			auth.POST("/refresh", authLimit, authHandler.RefreshToken)
 		}
 
 		// Protected routes

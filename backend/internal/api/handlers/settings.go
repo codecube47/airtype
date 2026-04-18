@@ -9,6 +9,17 @@ import (
 	"airtype/internal/repository"
 )
 
+// supportedLanguages is the set of ISO-639-1 codes officially validated on
+// Llama 4 Scout — mirrors desktop/src/lib/languages.ts. Keep in sync.
+var supportedLanguages = map[string]struct{}{
+	"en": {}, "ar": {}, "fr": {}, "de": {}, "hi": {}, "id": {},
+	"it": {}, "pt": {}, "es": {}, "tl": {}, "th": {}, "vi": {},
+}
+
+// Cap custom prompts to limit prompt-token cost and prevent users
+// from pasting arbitrarily large blobs into the system message.
+const maxCustomPromptLen = 500
+
 type SettingsHandler struct {
 	settingsRepo *repository.SettingsRepository
 }
@@ -60,9 +71,16 @@ func (h *SettingsHandler) UpdateSettings(c *gin.Context) {
 		return
 	}
 
-	// Validate language (basic check)
 	if settings.Language == "" {
 		settings.Language = "en"
+	}
+	if _, ok := supportedLanguages[settings.Language]; !ok {
+		c.JSON(400, gin.H{"error": "Unsupported language code"})
+		return
+	}
+	if len(settings.CustomPrompt) > maxCustomPromptLen {
+		c.JSON(400, gin.H{"error": "customPrompt exceeds 500 character limit"})
+		return
 	}
 
 	result, err := h.settingsRepo.Upsert(c.Request.Context(), userObjID, settings)

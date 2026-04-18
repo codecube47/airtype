@@ -95,3 +95,18 @@ func UserRateLimitMiddleware(ratePerMinute, burst float64) gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+// IPRateLimitMiddleware limits requests per client IP. Use on unauthenticated
+// endpoints (auth/exchange, auth/refresh) where per-user keying isn't possible,
+// to slow brute-forcing of exchange codes or refresh tokens observed in logs.
+func IPRateLimitMiddleware(ratePerMinute, burst float64) gin.HandlerFunc {
+	rl := newRateLimiter(ratePerMinute/60.0, burst)
+	return func(c *gin.Context) {
+		if !rl.allow(c.ClientIP()) {
+			c.Header("Retry-After", "60")
+			c.AbortWithStatusJSON(429, gin.H{"error": "Rate limit exceeded. Try again in a moment."})
+			return
+		}
+		c.Next()
+	}
+}
