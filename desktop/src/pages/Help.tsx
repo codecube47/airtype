@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button'
 import { Sidebar } from '@/components/Sidebar'
 import { HelpCircle, Keyboard, Mic, ShieldCheck, AlertCircle, Github, ExternalLink } from 'lucide-react'
+import { version as appVersion } from '../../package.json'
 
 interface HelpProps {
   onLogout: () => void
@@ -190,7 +191,7 @@ export function Help({ onLogout, onNavigate }: HelpProps) {
 
           {/* About footer */}
           <div className="text-center pt-4">
-            <p className="text-xs text-muted-foreground">AirType · v1.0.0</p>
+            <p className="text-xs text-muted-foreground">AirType · v{appVersion}</p>
           </div>
         </main>
       </div>
